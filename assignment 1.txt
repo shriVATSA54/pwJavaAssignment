@@ -1,0 +1,9 @@
+1. Computer is an electronic device which take instruction from human and perfrom some tasks.it stores data ,process according to commands given
+2. RAM is primary memory which is fast ,volatile device and expensive.
+3.DAta is stored inside Secondary memory.
+4. Keyboard
+5.output devices are devices whic gives out the processed data to user .ex monitor,speaker etc
+6. Mouse
+7.Machine level Language
+
+8.Input devices which are used to take instructions from user and give out to CPU. 

@@ -1,0 +1,11 @@
+1. git status
+2.git init
+3.git config --global user.name "nameABC"
+    git config --global user.mail "ABC@gmail.com"
+4.git add filename
+5.git rm --cached filename
+6. git commit -m  "message "
+7. git branch -M main
+     git remote add origin url
+       git push -u origin main
+8.  in git clone  the entire project/file is copied to local repo whereas in git pull only the latest changes are copied to local repo. 

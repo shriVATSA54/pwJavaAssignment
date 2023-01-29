@@ -1,0 +1,8 @@
+1. Git is vesion control System to manage files .
+2. version control system refers to method of saving,managing files to 
+3. Github is a server where we can save our files/data by creating repository.
+4. other githosting services like Gitbucket,Gitlab,Github
+5.there are two types of version control system .1.Centralised VCS  2.Distributed VCS
+6. using git we can 1.tracking of code 2.tracking who made changes 3. collaborations can made 
+7.Git repository is a place where we write our code and save 
+8.to intialise git we write code in git bash " git init"
