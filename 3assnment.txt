@@ -5,4 +5,5 @@
 5.there are two types of version control system .1.Centralised VCS  2.Distributed VCS
 6. using git we can 1.tracking of code 2.tracking who made changes 3. collaborations can made 
 7.Git repository is a place where we write our code and save 
-8.to intialise git we write code in git bash " git init"
+8.to intialise git we write code in git bash " git init".
+9.
