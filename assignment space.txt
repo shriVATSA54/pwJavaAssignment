@@ -1,0 +1,14 @@
+1.time comp of given is O(n^2) as there is nested for loop.
+   A better approach will be using matthematical formula 
+                    sum=(n(n+1))/2   where n is no given
+                       it has time com O(1) constant
+2.      given T(0)=5
+                 T(n)=3T(n-1)+12n
+             for T(1)=3T(0)+12*1=3*5+12*1=27
+             for T(2)=3T(1)+12n=3*27 + 12*2 = 105
+                      
+ 
+4.     here T(n)=16T(n/4)+n2logn
+             a=16 b=4  k=2 p=1
+                  16=4^2    and p=1
+                  by Masters theorem T(n)=0(n2log2 base n)
