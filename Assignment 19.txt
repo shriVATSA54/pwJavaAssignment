@@ -1,0 +1,92 @@
+Q1: Explain different types of Errors in Java
+Solution:
+Here are the common types of errors:
+StackOverflowError: Occurs when the program recurses too deeply and the call stack memory limit is exceeded.
+Example: A function calling itself indefinitely.
+OutOfMemoryError: Occurs when the JVM runs out of memory.
+Example: Trying to allocate a large array that exceeds the memory limit.
+VirtualMachineError: Includes errors like OutOfMemoryError and StackOverflowError and is a critical problem related to the JVM.
+LinkageError: Occurs when a class has a dependency on another class, and there is some problem with the linkage or compatibility.
+Example: A class loading failure.
+Note: Errors are unchecked, meaning they occur at runtime and cannot be handled by the application.
+
+Q2: What is an Exception in Java?
+Solution:
+
+An exception in Java is an event that occurs during the execution of a program that disrupts its normal flow. Exceptions are abnormal conditions, like dividing by zero or trying to access an invalid array index, that can be handled using exception handling mechanisms.
+
+Exceptions are part of the java.lang.Exception class and are further divided into checked exceptions (which must be handled by the programmer) and unchecked exceptions (which can be optionally handled).
+
+Q3: How can you handle exceptions in Java? Explain with an example.
+Solution:
+
+In Java, exceptions are handled using the try-catch-finally block. Here's how you handle exceptions:
+
+try: Wrap the code that might throw an exception inside the try block.
+catch: Handle the exception inside the catch block.
+finally: Code in the finally block will always run, whether or not an exception occurs.
+Example:
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; 
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero.");
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+Output:
+Cannot divide by zero.
+This will always execute.
+
+Q4: Why do we need exception handling in Java?
+Solution:
+We need exception handling in Java to:
+Maintain program flow: By handling exceptions, we prevent the program from abruptly terminating. This allows us to take corrective actions or show appropriate error messages.
+Improve program robustness: Exception handling makes programs more robust by allowing them to deal with unexpected events gracefully.
+Enhance code readability: It separates error-handling logic from the normal logic of the code, making the program easier to understand and maintain.
+Q5: What is the difference between Exception and Error in Java?
+Solution:
+
+Feature	Exception	Error
+Recoverable	Exceptions are generally recoverable and can be handled by the program.	Errors are usually not recoverable and cannot be handled by the program.
+Type	Part of java.lang.Exception.	Part of java.lang.Error.
+Examples	IOException, ArithmeticException, NullPointerException.	OutOfMemoryError, StackOverflowError, VirtualMachineError.
+Handling	Can be handled using try-catch blocks.	Typically not handled as they indicate serious system-level problems.
+Caused by	Generally caused by code errors or unexpected conditions in the program.	Caused by JVM or hardware failure, low memory, etc.
+Q6: Name the different types of exceptions in Java.
+Solution:
+
+There are two main types of exceptions in Java:
+
+Checked Exceptions:
+These are exceptions that the compiler checks at compile-time. The programmer must handle these exceptions using try-catch or declare them using the throws keyword.
+Examples: IOException, SQLException, FileNotFoundException.
+Unchecked Exceptions:
+These exceptions occur at runtime, and the compiler does not force the programmer to handle them.
+Examples: ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException.
+Additionally, there are:
+
+Runtime Exceptions: A subclass of Unchecked Exceptions. These usually represent programming errors like illegal method calls or invalid operations.
+Examples: NullPointerException, ClassCastException.
+Q7: Can we just use try instead of finally and catch blocks?
+Solution:
+
+No, you cannot use the try block alone in Java. A try block must be followed by either a catch block or a finally block or both.
+
+try-catch: This is used to catch and handle exceptions.
+try-finally: This can be used when you don’t need to handle the exception but still want to execute some cleanup code (in the finally block) like closing files, releasing resources, etc.
+Example:
+
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } finally {
+            System.out.println("Finally block executed");
+        }
+    }
+}
+In this case, even though there's no catch, the finally block will still execute after the exception occurs.
