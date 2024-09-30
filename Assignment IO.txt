@@ -1,0 +1,136 @@
+Q1: What is Input and Output Stream in Java?
+Ans:
+InputStream is a class in Java used to read data (bytes) from a source, such as a file, keyboard, or network. It allows for reading data in a sequential manner.
+  Ex: `FileInputStream`, `BufferedInputStream`.
+
+OutputStream is a class in Java used to write data (bytes) to a destination, such as a file or network. It allows for writing data sequentially.
+ `FileOutputStream`, `BufferedOutputStream`.
+
+Q2: What are the methods of OutputStream?
+
+Ans:
+The primary methods of `OutputStream` in Java are:
+1. write(int b): Writes the specified byte to the output stream.
+2. write(byte[] b): Writes an array of bytes to the output stream.
+3. write(byte[] b, int off, int len)**: Writes a portion of the byte array to the output stream.
+4. flush(): Forces any buffered output bytes to be written out.
+5.close(): Closes the output stream and releases any system resources associated with it.
+
+Q3: What is Serialization in Java?
+
+Ans:
+Serialization is the process of converting an object into a byte stream so that it can be saved to a file or transmitted over a network. The object’s state (i.e., its instance variables) is saved, and the object can later be recreated (deserialized).
+
+Q4: What is the Serializable Interface in Java?**
+
+Ans:
+The `Serializable` interface in Java is a **marker interface** (it has no methods) that tells the Java Virtual Machine (JVM) that the object of the class can be serialized. A class must implement `Serializable` to enable its objects to be serialized and deserialized.
+
+
+class Example implements Serializable {
+    private static final long serialVersionUID = 1L;
+    int id;
+    String name;
+}
+
+Q5: What is Deserialization in Java?
+
+Ans:
+Deserialization is the process of reconstructing an object from a byte stream. It is the reverse of serialization, allowing the program to recreate the object as it was when it was serialized.
+
+Q6: How is Serialization achieved in Java?
+
+
+
+Serialization in Java is achieved using the `ObjectOutputStream` class, which writes the object to a stream. The class of the object must implement the `Serializable` interface.
+
+Example:
+
+ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("object.ser"));
+out.writeObject(myObject);
+out.close();
+
+
+This code writes `myObject` to a file named "object.ser".
+
+
+Q7: How is Deserialization achieved in Java?
+Ans:
+
+Deserialization is achieved using the `ObjectInputStream` class, which reads the object from a stream and converts it back to its original state.
+
+Ex:
+ObjectInputStream in = new ObjectInputStream(new FileInputStream("object.ser"));
+MyClass myObject = (MyClass) in.readObject();
+in.close();
+```
+
+This code reads the object from the file "object.ser".
+
+Q8: How can you avoid certain member variables of a class from getting serialized?**
+
+Ans:
+You can avoid certain member variables from being serialized by declaring them with the `transient` keyword. A `transient` variable is not included in the serialized output.
+
+Ex:
+class Example implements Serializable {
+    int id;
+    transient String password;  // This field won't be serialized
+}
+
+Q9: What classes are available in the Java I/O File Classes API?**
+Ans:
+
+The Java I/O API includes the following file classes:
+
+1. File: Represents a file or directory on the disk.
+2. FileInputStream: Used to read data from a file as a stream of bytes.
+3. FileOutputStream: Used to write data to a file as a stream of bytes.
+4. BufferedReader: Used to read text from a character input stream, buffering characters for efficiency.
+5. BufferedWriter: Used to write text to a character output stream, buffering characters for efficiency.
+6. FileReader: Used to read data from a file as a stream of characters.
+7. FileWriter: Used to write data to a file as a stream of characters.
+
+Q10: What is the difference between the `Externalizable` and `Serializable` interfaces?**
+
+Ans:
+Purpose:
+
+Serializable: Automatically handles serialization using default mechanisms.
+Externalizable: Requires the class to explicitly implement custom read and write methods.
+Interface Methods:
+
+Serializable: No methods (Marker Interface).
+Externalizable: Requires the implementation of writeExternal() and readExternal() methods.
+Customization:
+
+Serializable: Limited customization, cannot fully control the serialization process.
+Externalizable: Full control over what is serialized and how it is serialized.
+Serialization Process:
+
+Serializable: The JVM handles most of the process automatically.
+Externalizable: The programmer has to manually handle the serialization process.
+Performance:
+
+Serializable: Slower due to reflection and automatic serialization of fields.
+Externalizable: Can be faster because the user explicitly controls what gets serialized.
+Deserialization:
+
+Serializable: JVM calls the constructor automatically during deserialization.
+Externalizable: The programmer can control which constructor gets called during deserialization.
+Backward Compatibility:
+
+Serializable: Supports versioning and is more flexible when dealing with different versions of a class.
+Externalizable: Does not support versioning easily; backward compatibility can be harder to manage.
+Default Behavior:
+
+Serializable: Serializes all non-transient fields by default.
+Externalizable: Only serializes what is explicitly defined in writeExternal().
+Control over Serialization:
+
+Serializable: Minimal control over the exact process of serialization.
+Externalizable: Complete control over both serialization and deserialization processes.
+Use Case:
+
+Serializable: Used for simpler cases where the default serialization mechanism is sufficient.
+Externalizable: Used for more complex cases where specific control over serialization is needed.
